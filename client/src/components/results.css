@@ -4,12 +4,17 @@
 }
 
 .episode-wrapper {
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* flex-direction: column; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   flex-wrap: wrap;
   flex-basis: 33.333333%;
+  flex: 1;
+  border: 1px solid black;
+}
+
+.img-wrapper {
 }
 
 .episode-wrapper:hover {

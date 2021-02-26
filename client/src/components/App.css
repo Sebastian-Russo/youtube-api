@@ -1,0 +1,16 @@
+/* .App {
+  margin-left: 40px;
+  margin-right: 40px;
+} */
+
+.logo-wrapper {
+  height: 20%;
+  width: 20%;
+  position: fixed;
+}
+
+.result-wrapper {
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 40px;
+}

@@ -1,0 +1,12 @@
+form {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  background-color: aqua;
+}
+
+label,
+input,
+button {
+  margin: 6px;
+}

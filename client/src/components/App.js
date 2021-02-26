@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
-import { Search } from './search';
+import image1 from '../images/fluffeetalkspic.png'
+import { SearchBar } from './search-bar';
 import { Results } from './results';
 import { Episode } from './episode';
+
+/* TODO 
+- paginate results 
+- user search specific videos
+- dynamic routing 
+- play video 
+ */
 
 
 function App() {
@@ -41,9 +49,12 @@ function App() {
 
   return (
     <div className="App">
-      <Search input={input} handleChange={handleChange} handleSubmit={handleSubmit} />
-      <Results items={data} handleClickEpisode={handleClickEpisode} />
-      <Episode item={episode} />
+        <div className="logo-wrapper"><img src={image1} alt="logo" width="50%" /></div>
+        <SearchBar input={input} handleChange={handleChange} handleSubmit={handleSubmit} />
+      <div className="result-wrapper">
+        <Results items={data} handleClickEpisode={handleClickEpisode} />
+        <Episode item={episode} />
+      </div>
     </div>
   );
 }

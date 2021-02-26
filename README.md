@@ -17,7 +17,7 @@ Frontend
 · Your implementation must be responsive, so that it displays correctly in a desktop or mobile environment
 · You may use Vue.js or React.js to develop this
 
-## What I learned, probelms I faced
+## What I learned, probelms I faced, tools I used
 
 Finding a youtube channels ID
 https://commentpicker.com/youtube-channel-id.php
@@ -27,3 +27,5 @@ Realised it's better to use the youtube.search, channelID as a param
 Rest Client is a great new extension that's help me test my http requests
 
 Learned to paginate request on the backend
+
+Added a responsive react player for youtube videos

@@ -1,6 +1,7 @@
-import './search.css';
+import './search-bar.css';
+// import image2 from '../images/fluffeetalkscartoon.jpeg';
 
-export const Search = ({input, handleChange, handleSubmit}) => {
+export const SearchBar = ({input, handleChange, handleSubmit}) => {
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="search">Search</label>

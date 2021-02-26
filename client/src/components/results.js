@@ -8,7 +8,7 @@ export const Results = ({items, handleClickEpisode}) => {
   const itemList = items[0].results.map((item,i) => {
     return (
       <div key={i} className="episode-wrapper" onClick={(e) => handleClickEpisode(e,item)}>
-        <div><img src={item.thumbnails.medium.url} alt="thumbnail"/></div>
+        <div className="img-wrapper"><img src={item.thumbnails.medium.url} alt="thumbnail"/></div>
         <div>{item.title}</div>
         {/* <div>{item.description}</div> */}
       </div>
