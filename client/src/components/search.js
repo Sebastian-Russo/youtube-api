@@ -11,7 +11,7 @@ export const Search = ({input, handleChange, handleSubmit}) => {
         onChange={(e) => handleChange(e)}
         placeholder="FluffeeTalk episode"
         />
-      <button type="Submit">Search</button>
+      <button type="Submit" disabled={input.length === 0}>Search</button>
     </form>
   )
 }

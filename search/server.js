@@ -23,7 +23,7 @@ const fetchYoutubeSearch = async () => {
     })
     
     data.items.map(item => videos.push(item.snippet))
-    
+
   } catch(err) {
     console.log(chalk.red(err))
   }

@@ -1,0 +1,17 @@
+.episode-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.episode-wrapper {
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  flex-basis: 33.333333%;
+}
+
+.episode-wrapper:hover {
+  cursor: pointer;
+}
