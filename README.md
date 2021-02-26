@@ -22,3 +22,6 @@ Frontend
 Finding a youtube channels ID
 https://commentpicker.com/youtube-channel-id.php
 FluffeeTalks Channel ID: UCBh8XcZST_JTHt-IZDxT_pQ
+Realised it's better to use the youtube.search, channelID as a param
+
+Rest Client is a great new extension that's help me test my http requests

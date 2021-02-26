@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const chalk = require('chalk');
 
 const users =  [
   { id: 1, name: 'User 1'},
@@ -23,7 +24,6 @@ const users =  [
 
 // paginate api results 
 app.get('/users', paginatedResults(users), (req, res) => {
-
   res.json(res.paginatedResults)
 })
 
@@ -52,7 +52,9 @@ function paginatedResults(model) {
         limit: limit
       }
     }
-  
+    
+    console.log(chalk.yellow(startIndex, endIndex))
+
     results.results = model.slice(startIndex, endIndex)
     // save to response 
     res.paginatedResults = results 

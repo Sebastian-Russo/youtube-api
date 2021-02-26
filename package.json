@@ -4,6 +4,7 @@
   "description": "Backend · Develop an API that consumes the YouTube API to consult videos of a channel of your choosing (please pick a channel with more than 12 videos) · The API you build must be able to handle paging parameters such as the quantity of results requested and page numbers · The API must also be able to receive a word or phrase to look for videos within the selected YouTube channel · If the API does not receive any parameters it must return 12 results (videos) · The format of the results must be JSON · Please develop this is Node.js",
   "main": "server.js",
   "dependencies": {
+    "chalk": "^4.1.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "googleapis": "^67.1.0"
@@ -11,7 +12,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon search/server.js"
   },
   "author": "",
   "license": "ISC"
