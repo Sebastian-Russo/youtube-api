@@ -1,10 +1,12 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
+const cors = require('cors')
 const chalk = require('chalk');
 const { google } = require('googleapis');
 const youtube = google.youtube('v3'); // initialize the Youtube API library 
 
+app.use(cors());
 
 /******************** YOUTUBE API CALL *********************/
 const fetchYoutubeSearch = async () => {
@@ -25,19 +27,16 @@ const fetchYoutubeSearch = async () => {
   } catch(err) {
     console.log(chalk.red(err))
   }
+  next()
 }
 fetchYoutubeSearch();
 
 /******************** DATA FROM CALL *********************/
-let videos = [] // not getting filled before http request
-console.log(chalk.yellow('videos global', videos[0]))
-
+let videos = [] 
+console.log(chalk.blue('videos', videos))
 
 /******************** GET REQUEST TO VIDEOS *********************/
 app.get('/videos', paginatedResults(videos), (req, res) => {
-  
-  console.log(chalk.yellow('REQUEST', req))
-
   res.json(res.paginatedResults)
   console.log(chalk.blue(res.paginatedResults))
 })
@@ -81,5 +80,5 @@ function paginatedResults(model) {
 
 /******************** LIST TO PORT  *********************/
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 app.listen(port, () => console.log(`Listing on port ${port}`));
