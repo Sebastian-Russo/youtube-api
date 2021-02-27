@@ -4,8 +4,9 @@ export const Results = ({items, handleClickEpisode}) => {
   
   if(!items || items.length === 0) return ( <div></div>);
   
-  // remove [0] when using real data 
-  const itemList = items[0].results.map((item,i) => {
+  console.log(items)  
+
+  const itemList = items.map((item,i) => {
     return (
       <div key={i} className="episode-wrapper" onClick={(e) => handleClickEpisode(e,item)}>
         <div className="img-wrapper"><img src={item.thumbnails.medium.url} alt="thumbnail"/></div>
