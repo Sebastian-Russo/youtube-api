@@ -8,7 +8,6 @@ import { Episode } from './episode';
 import { Pagination } from './pagination';
 
 /* TODO 
-- paginate results 
 - user search specific videos
 - dynamic routing 
 - play video 
@@ -23,17 +22,24 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [videosPerPage] = useState(12);
 
+  // console.log(query)
+  // console.log(items)
+
   useEffect(() => {
     const fetchData = async () => {
       try {
+        await axios.post('http://localhost:3001/videos', {
+          query: query
+        }).then((res) => console.log(res)).catch(err=>console.error(err))
+
         const data = await axios.get('http://localhost:3001/videos?page=1&limit=50')
-        console.log(data)
         setItems(data.data)
+        console.log(data)
       } catch(err) {
         console.error(err)
       }
     }
-    // fetchData()
+    fetchData()
   }, [query])
 
 
@@ -41,6 +47,7 @@ function App() {
     setInput(e.target.value);
   }
 
+  // user enters seach 
   const handleSubmit = e => {
     e.preventDefault()
     setQuery(input)

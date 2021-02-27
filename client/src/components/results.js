@@ -4,8 +4,6 @@ export const Results = ({items, handleClickEpisode}) => {
   
   if(!items || items.length === 0) return ( <div></div>);
   
-  console.log(items)  
-
   const itemList = items.map((item,i) => {
     return (
       <div key={i} className="episode-wrapper" onClick={(e) => handleClickEpisode(e,item)}>

@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const bodyParser = require('body-parser')
 const app = express();
 const cors = require('cors')
 const chalk = require('chalk');
@@ -7,16 +8,18 @@ const { google } = require('googleapis');
 const youtube = google.youtube('v3'); // initialize the Youtube API library 
 
 app.use(cors());
+app.use(bodyParser.json());
+
 
 /******************** YOUTUBE API CALL *********************/
-const fetchYoutubeSearch = async () => {
+const fetchYoutubeSearch = async (query) => {
   try {
 
     const {data} = await youtube.search.list({
       key: process.env.YOUTUBE_API_TOKEN,
       part: 'snippet',
       maxResults: 50, 
-      'q': 'FluffeeTalks',
+      'q': query,
       channelId: 'UCBh8XcZST_JTHt-IZDxT_pQ',
       order: 'date',
       type: 'video'
@@ -27,23 +30,31 @@ const fetchYoutubeSearch = async () => {
   } catch(err) {
     console.log(chalk.red(err))
   }
-  next()
+  // next()
 }
 fetchYoutubeSearch();
 
 /******************** DATA FROM CALL *********************/
 let videos = [] 
-console.log(chalk.blue('videos', videos))
 
 /******************** GET REQUEST TO VIDEOS *********************/
 app.get('/videos', paginatedResults(videos), (req, res) => {
   res.json(res.paginatedResults)
-  console.log(chalk.blue(res.paginatedResults))
+  // console.log(chalk.blue(res.paginatedResults))
 })
+
+/******************** POST REQUEST, USER SEARCH *********************/
+
+app.post('/videos', (req, res) => {
+  console.log(req.body)
+  const query = req.body
+  res.sendStatus(204)
+  fetchYoutubeSearch(query)
+})
+
 
 /******************** PAGINATE RESULTS *********************/
 function paginatedResults(model) {
-  console.log(chalk.yellow('HERE',model))
   return (req, res, next) => {
     const page = parseInt(req.query.page)
     const limit = parseInt(req.query.limit)
