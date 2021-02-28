@@ -17,7 +17,7 @@ const fetchYoutubeSearch = async (query) => {
 
     const {data} = await youtube.search.list({
       key: process.env.YOUTUBE_API_TOKEN,
-      part: 'snippet',
+      part: ['videos', 'contentDetails'],
       maxResults: 50, 
       'q': query,
       channelId: 'UCBh8XcZST_JTHt-IZDxT_pQ',
@@ -32,7 +32,7 @@ const fetchYoutubeSearch = async (query) => {
   }
   // next()
 }
-fetchYoutubeSearch();
+// fetchYoutubeSearch();
 
 /******************** DATA FROM CALL *********************/
 let videos = [] 

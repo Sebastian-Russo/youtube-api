@@ -1,13 +1,18 @@
 import React from 'react';
-// import ResponsivePlayer from './responsive-player';
+import ResponsivePlayer from './responsive-player';
+import './episode.css';
 
 export const Episode = ({item}) => {
-  // console.log(item)
+  if (!item) return (<div></div>)
+  console.log(item.id)
+  const videoId = item.id.videoId;
 
   return (
-    <div className="episode-wrapper">
+    <div>
       <div>{item.title}</div>
-      {/* <ResponsivePlayer url={url}/> */}
+      <div className="player-container">
+        <ResponsivePlayer videoId={videoId}/>
+      </div>
     </div>
   )
 }

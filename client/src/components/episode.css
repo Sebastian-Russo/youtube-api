@@ -1,3 +1,4 @@
-.episode-wrapper {
-  display: flex;
+.player-container {
+  border: 1px solid black;
+  height: 50%;
 }
