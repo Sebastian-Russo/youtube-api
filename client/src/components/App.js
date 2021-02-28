@@ -5,7 +5,6 @@ import image1 from '../images/fluffeetalkspic.png'
 import { SearchBar } from './search-bar';
 import { Results } from './results';
 import { Episode } from './episode';
-import { Pagination } from './pagination';
 import './App.css';
 
 /* TODO 
@@ -77,12 +76,25 @@ function App() {
         
         <Switch>
           
-
-        <div className="result-wrapper">
-          <Results items={currentVideos} handleClickEpisode={handleClickEpisode} />
-          <Pagination videosPerPage={videosPerPage} totalVideos={items.length} paginate={paginate} />
-          <Episode item={episode} />
-        </div>
+          <Route 
+              exact 
+              path="/" 
+              render={props => 
+                <Results 
+                  {...props}
+                  items={currentVideos} handleClickEpisode={handleClickEpisode} videosPerPage={videosPerPage} totalVideos={items.length} paginate={paginate} />
+              }    
+          />
+          
+          <Route 
+              path="/FluffeeTalks/:search" 
+              render={props => 
+                <Episode 
+                {...props}
+                item={episode} />
+              }    
+          />
+          
 
 
         </Switch>
