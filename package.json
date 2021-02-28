@@ -7,6 +7,7 @@
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "chalk": "^4.1.0",
+    "concurrently": "^6.0.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -17,7 +18,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon search/server.js"
+    "client": "cd client && npm start",
+    "start": "concurrently \"nodemon search/server.js\" \"npm run client\" "
   },
   "author": "",
   "license": "ISC"

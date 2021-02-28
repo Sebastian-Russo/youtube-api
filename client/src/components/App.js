@@ -40,7 +40,7 @@ function App() {
         console.error(err)
       }
     }
-    fetchData()
+    // fetchData()
   }, [query])
 
 
