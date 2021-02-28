@@ -8,8 +8,6 @@ import { Episode } from './episode';
 import './App.css';
 
 /* TODO 
-- dynamic routing 
-- fix positioning of video player 
 - switch mock data to real data, make sure videoId is there 
 - add common searches as links in the search bar
 */
@@ -42,7 +40,7 @@ function App() {
         console.error(err)
       }
     }
-    // fetchData()
+    fetchData()
   }, [query])
 
 
@@ -94,9 +92,7 @@ function App() {
                 item={episode} />
               }    
           />
-          
-
-
+        
         </Switch>
 
       </div>

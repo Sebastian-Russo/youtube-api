@@ -1,4 +1,22 @@
 .player-container {
+  margin: 35px;
   border: 1px solid black;
-  height: 50%;
+}
+
+.title-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  color: teal;
+}
+
+.description-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 10% 3% 10%;
+  font-size: 1.2em;
+  color: teal;
 }

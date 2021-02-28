@@ -13,8 +13,8 @@ const  ResponsivePlayer = ({videoId}) =>{
           className='react-player'
           url={url}
           controls={true}
-          width='50%'
-          height='50%'
+          width='75%'
+          height='75%'
         />
       </div>
     )

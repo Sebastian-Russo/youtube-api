@@ -9,14 +9,18 @@ export const Episode = ({item}) => {
   if (!item) return (<div></div>)
 
 
-  console.log(item.id)
+  console.log(item)
   const videoId = item.id.videoId;
 
   return (
     <div>
-      <div>{item.title}</div>
       <div className="player-container">
+        <div className="title-wrapper">FluffeeTalks</div>
         <ResponsivePlayer videoId={videoId}/>
+        <div className="description-wrapper">
+            <div>{item.snippet.title}</div>
+            <div>{item.snippet.description}</div>
+        </div>
       </div>
       <button 
         className="btn"

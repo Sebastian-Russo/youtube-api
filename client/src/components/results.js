@@ -12,7 +12,7 @@ export const Results = ({items, handleClickEpisode, videosPerPage, totalVideos, 
       <div key={i} className="episode-wrapper" onClick={(e) => handleClickEpisode(e,item)}>
         <Link to={`/FluffeeTalks/${item.snippet.title}`} >
         <div className="img-wrapper"><img src={item.snippet.thumbnails.medium.url} alt="thumbnail"/></div>
-        <div>{item.snippet.title}</div>
+        <div className="title">{item.snippet.title}</div>
         {/* <div>{item.description}</div> */}
         </Link>
       </div>
