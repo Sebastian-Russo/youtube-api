@@ -7,11 +7,6 @@ import { Results } from './results';
 import { Episode } from './episode';
 import './App.css';
 
-/* TODO 
-- add user search
-- add common searches as links in the search bar
-*/
-
 
 function App() {
   const [input, setInput] = useState('');
@@ -20,7 +15,6 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [videosPerPage] = useState(12);
   
-  // console.log(items)
   
   // Initial API Call
   useEffect(() => {
