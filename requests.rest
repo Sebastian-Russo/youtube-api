@@ -3,3 +3,4 @@
 
 GET http://localhost:3001/videos?page=1&limit=50
 
+# GET http://localhost:3001/videos

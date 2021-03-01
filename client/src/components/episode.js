@@ -8,9 +8,8 @@ export const Episode = ({item}) => {
 
   if (!item) return (<div></div>)
 
-
   console.log(item)
-  const videoId = item.id.videoId;
+  const {videoId} = item.snippet.resourceId;
 
   return (
     <div>
@@ -19,7 +18,7 @@ export const Episode = ({item}) => {
         <ResponsivePlayer videoId={videoId}/>
         <div className="description-wrapper">
             <div>{item.snippet.title}</div>
-            <div>{item.snippet.description}</div>
+            {/* <div>{item.snippet.description}</div> */}
         </div>
       </div>
       <button 
