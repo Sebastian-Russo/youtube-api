@@ -5,6 +5,7 @@ import image1 from '../images/fluffeetalkspic.png'
 import { SearchBar } from './search-bar';
 import { Results } from './results';
 import { Episode } from './episode';
+import { API_BASE_URL } from '../config';
 import './App.css';
 
 
@@ -20,7 +21,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const {data} = await axios.get('http://localhost:3001/videos?page=1&limit=50')
+        const {data} = await axios.get(`${API_BASE_URL}/videos?page=1&limit=50`)
         console.log(data)
         setItems(data)
       } catch(err) {
@@ -33,7 +34,7 @@ function App() {
 // User Search API Call
 const fetchDataSearch = async () => {
   try {
-    const {data} = await axios.post('http://localhost:3001/videos', {
+    const {data} = await axios.post(`${API_BASE_URL}/videos`, {
       query: input
     })
     console.log(data)
