@@ -13,7 +13,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 /******************** GET REQUEST TO VIDEOS *********************/
-app.get('/videos', cors(), async (req, res) => {
+app.get('/videos', async (req, res) => {
   const results = await fetchYoutubePlaylist();
   res.json(results)
 })
@@ -29,7 +29,7 @@ app.post('/videos', async (req, res) => {
 })
 
 
-app.use('*', (req, res) => {
+app.use('*', cors(), (req, res) => {
   return res.status(404).json({ message: 'Not Found' });
 });
 
