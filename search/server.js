@@ -12,18 +12,8 @@ const youtube = google.youtube('v3'); // initialize the Youtube API library
 app.use(cors());
 app.use(bodyParser.json());
 
-// const { router: getRouter } = require('./routes/get');
-// const { router: postRouter } = require('./routes/post');
-
-// app.use('/videos', getRouter);
-// app.use('/videos', postRouter);
-
-// app.use('*', (req, res) => {
-//   return res.status(404).json({ message: 'Not Found' });
-// });
-
 /******************** GET REQUEST TO VIDEOS *********************/
-app.get('/videos', async (req, res) => {
+app.get('/videos', cors(), async (req, res) => {
   const results = await fetchYoutubePlaylist();
   res.json(results)
 })
@@ -93,7 +83,6 @@ const fetchYoutubeSearch = async ({query}) => {
   }
 } 
 
-// module.exports = { fetchYoutubePlaylist, fetchYoutubeSearch }
 
 
 
