@@ -22,6 +22,23 @@ app.use(bodyParser.json());
 //   return res.status(404).json({ message: 'Not Found' });
 // });
 
+/******************** GET REQUEST TO VIDEOS *********************/
+app.get('/videos', async (req, res) => {
+  const results = await fetchYoutubePlaylist();
+  res.json(results)
+})
+
+// /******************** POST REQUEST, USER SEARCH *********************/
+
+app.post('/videos', async (req, res) => {
+  console.log('POST QUERY',req.body)
+  const query = req.body
+  res.body = await fetchYoutubeSearch(query)
+  console.log("RES POST", res.body)
+  res.json(res.body) 
+})
+
+
 app.use('*', (req, res) => {
   return res.status(404).json({ message: 'Not Found' });
 });
@@ -77,24 +94,6 @@ const fetchYoutubeSearch = async ({query}) => {
 } 
 
 // module.exports = { fetchYoutubePlaylist, fetchYoutubeSearch }
-
-/******************** GET REQUEST TO VIDEOS *********************/
-app.get('/videos', async (req, res) => {
-  const results = await fetchYoutubePlaylist();
-  res.json(results)
-})
-
-// /******************** POST REQUEST, USER SEARCH *********************/
-
-app.post('/videos', async (req, res) => {
-  console.log('POST QUERY',req.body)
-  const query = req.body
-  res.body = await fetchYoutubeSearch(query)
-  console.log("RES POST", res.body)
-  res.json(res.body) 
-})
-
-
 
 
 
