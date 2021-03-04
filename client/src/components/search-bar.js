@@ -14,6 +14,7 @@ export const SearchBar = ({input, handleChange, handleSubmit, handleSelection}) 
         />
       <button type="Submit" disabled={input.length === 0}>Search</button>
       <select onChange={(e) => handleSelection(e)}>
+        <option>Categories</option>
         <option value="World's Worst Tattoos">World's Worst Tattoos</option>
         <option value="Wtf is happening in these pictures">Wtf is happening in these pictures</option>
         <option value="You're bad at Walmart">You're bad at Walmart</option>

@@ -18,7 +18,6 @@ function App() {
   
   // Initial API Call
   useEffect(() => {
-    // setItems(data)  // to work without using up API calls 
     const fetchData = async () => {
       try {
         const {data} = await axios.get('http://localhost:3001/videos?page=1&limit=50')

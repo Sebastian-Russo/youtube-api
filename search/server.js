@@ -7,8 +7,20 @@ const chalk = require('chalk');
 const { google } = require('googleapis');
 const youtube = google.youtube('v3'); // initialize the Youtube API library 
 
+
+// Middleware 
 app.use(cors());
 app.use(bodyParser.json());
+
+// const { router: getRouter } = require('./routes/get');
+// const { router: postRouter } = require('./routes/post');
+
+// app.use('/videos', getRouter);
+// app.use('/videos', postRouter);
+
+// app.use('*', (req, res) => {
+//   return res.status(404).json({ message: 'Not Found' });
+// });
 
 
 /******************** FIRST YOUTUBE API CALL *********************/
@@ -49,6 +61,7 @@ const fetchYoutubeSearch = async ({query}) => {
   }
 } 
 
+// module.exports = { fetchYoutubePlaylist, fetchYoutubeSearch }
 
 /******************** GET REQUEST TO VIDEOS *********************/
 app.get('/videos', async (req, res) => {
@@ -56,7 +69,7 @@ app.get('/videos', async (req, res) => {
   res.json(results)
 })
 
-/******************** POST REQUEST, USER SEARCH *********************/
+// /******************** POST REQUEST, USER SEARCH *********************/
 
 app.post('/videos', async (req, res) => {
   console.log('POST QUERY',req.body)
