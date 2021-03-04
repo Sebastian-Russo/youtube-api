@@ -22,6 +22,21 @@ app.use(bodyParser.json());
 //   return res.status(404).json({ message: 'Not Found' });
 // });
 
+app.use('*', (req, res) => {
+  return res.status(404).json({ message: 'Not Found' });
+});
+
+
+// CORS
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Content-Type,multipart/form-data,Authorization');
+  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
+  if (req.method === 'OPTIONS') {
+    return res.send(204);
+  }
+  next();
+});
 
 /******************** FIRST YOUTUBE API CALL *********************/
 const fetchYoutubePlaylist = async () => {
