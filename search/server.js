@@ -12,27 +12,6 @@ const youtube = google.youtube('v3'); // initialize the Youtube API library
 app.use(cors());
 app.use(bodyParser.json());
 
-/******************** GET REQUEST TO VIDEOS *********************/
-app.get('/videos', async (req, res) => {
-  const results = await fetchYoutubePlaylist();
-  res.json(results)
-})
-
-// /******************** POST REQUEST, USER SEARCH *********************/
-
-app.post('/videos', async (req, res) => {
-  console.log('POST QUERY',req.body)
-  const query = req.body
-  res.body = await fetchYoutubeSearch(query)
-  console.log("RES POST", res.body)
-  res.json(res.body) 
-})
-
-
-app.use('*', cors(), (req, res) => {
-  return res.status(404).json({ message: 'Not Found' });
-});
-
 
 // CORS
 app.use((req, res, next) => {
@@ -85,8 +64,29 @@ const fetchYoutubeSearch = async ({query}) => {
 
 
 
+// exports need to be above routes, so it can get reference to it
+/******************** EXPORTS  *********************/ 
+module.exports = { fetchYoutubePlaylist, fetchYoutubeSearch }
+
+
+
+/******************** ROUTES  *********************/ 
+
+const getRouter = require('./routes/get');
+const { router: postRouter } = require('./routes/post');
+
+app.use('/videos', getRouter);
+app.use('/videos', postRouter);
+
+
+app.use('*', (req, res) => {
+  return res.status(404).json({ message: 'Not Found, backend' });
+});
+
 
 /******************** LIST TO PORT  *********************/
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => console.log(`Listing on port ${port}`));
+
+

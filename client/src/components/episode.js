@@ -6,10 +6,17 @@ import './episode.css';
 export const Episode = ({item}) => {
   const history = useHistory();
 
-  if (!item) return (<div></div>)
+  // console.log(item)
+  // if (!item) return (<div></div>)
+  if (!item) {
+    history.push('/')
+    return null;
+  }
 
-  console.log(item)
-  const {videoId} = item.snippet.resourceId;
+
+                   // GET                 // SEARCH - POST
+  const {videoId} = item.snippet.resourceId || item.id;
+
 
   return (
     <div>

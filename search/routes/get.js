@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const api = require('../server.js');
+const api = require('../server');
 
 console.log('API', api)
 
@@ -9,4 +9,4 @@ router.get('/', async (req, res) => {
   res.json(results)
 })
 
-module.exports = { router }; 
+module.exports = router 
