@@ -19,7 +19,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "cd client && npm start",
-    "start": "concurrently \"nodemon search/server.js\" \"npm run client\" "
+    "start": "node search/server.js",
+    "dev": "concurrently \"nodemon search/server.js\" \"npm run client\" "
   },
   "author": "",
   "license": "ISC"
