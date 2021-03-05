@@ -13,16 +13,16 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-// CORS
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Content-Type,multipart/form-data,Authorization');
-  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
-  if (req.method === 'OPTIONS') {
-    return res.send(204);
-  }
-  next();
-});
+// // CORS
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type,multipart/form-data,Authorization');
+//   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
+//   if (req.method === 'OPTIONS') {
+//     return res.send(204);
+//   }
+//   next();
+// });
 
 /******************** FIRST YOUTUBE API CALL *********************/
 const fetchYoutubePlaylist = async () => {
@@ -73,7 +73,7 @@ module.exports = { fetchYoutubePlaylist, fetchYoutubeSearch }
 /******************** ROUTES  *********************/ 
 
 const getRouter = require('./routes/get');
-const { router: postRouter } = require('./routes/post');
+const postRouter = require('./routes/post');
 
 app.use('/videos', getRouter);
 app.use('/videos', postRouter);
