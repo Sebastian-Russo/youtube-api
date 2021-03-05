@@ -21,7 +21,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const {data} = await axios.get(`${API_BASE_URL}/videos?page=1&limit=50`)
+        const {data} = await axios.get(`${API_BASE_URL}/videos`)
         console.log(data)
         setItems(data)
       } catch(err) {
