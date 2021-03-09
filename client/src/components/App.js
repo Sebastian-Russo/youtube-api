@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import axios from 'axios';
 import image1 from '../images/fluffeetalkspic.png'
 import { SearchBar } from './search-bar';
@@ -74,7 +74,7 @@ const fetchDataSearch = async () => {
   return (
     <Router>
       <div className="App">
-          <div className="logo-wrapper"><img src={image1} alt="logo" width="50%" /></div>
+          <Link to="/" ><div className="logo-wrapper"><img src={image1} alt="logo" width="100%" /></div></Link>
           <SearchBar input={input} handleChange={handleChange} handleSubmit={handleSubmit} handleSelection={handleSelection} />
         
         <Switch>

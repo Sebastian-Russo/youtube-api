@@ -10,3 +10,14 @@ input,
 button {
   margin: 6px;
 }
+
+@media only screen and (max-width: 600px) {
+  form {
+    flex-direction: column;
+  }
+  button {
+    width: auto;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+}
