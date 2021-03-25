@@ -4,7 +4,7 @@ export const SearchBar = ({input, handleChange, handleSubmit, handleSelection}) 
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="search">Search</label>
+      <button type="Submit" disabled={input.length === 0}>Search</button>
       <input 
         name="search" 
         type="text"
@@ -12,7 +12,7 @@ export const SearchBar = ({input, handleChange, handleSubmit, handleSelection}) 
         onChange={(e) => handleChange(e)}
         placeholder="FluffeeTalks episode"
         />
-      <button type="Submit" disabled={input.length === 0}>Search</button>
+      <label htmlFor="search">Select</label>
       <select onChange={(e) => handleSelection(e)}>
         <option>Categories</option>
         <option value="World's Worst Tattoos">World's Worst Tattoos</option>

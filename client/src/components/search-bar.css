@@ -1,8 +1,9 @@
 form {
   display: flex;
   justify-content: center;
+  align-items: center;
+  padding: 8px;
   margin: 10px;
-  background-color: aqua;
 }
 
 label,
